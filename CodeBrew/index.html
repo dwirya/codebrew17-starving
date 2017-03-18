@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+
+
+<html ng-app="todoApp">
+
+<head>
+
+    <title>Codebrew-17</title>
+
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.2.0.min.js" integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous"></script>
+
+
+
+    <script src="semantic/dist/semantic.min.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+    
+    <script src="todo.js"></script>
+
+
+
+
+</head>
+
+<body ng-controller="TodoListController as todoList">
+    
+    <div class="ui three column grid">
+        
+        <div ng-repeat="todo in todoList.todos" class="row">
+            
+            <div class="ui three wide column">
+                
+                <img src="Semantic/examples/images/"
+            
+            </div>
+            
+            <div class="ui ten wide column">
+            
+                {{todo.text}}
+                
+            </div>
+            
+            <div class="ui three wide column">
+            
+                
+                
+            </div>
+        
+        </div>
+        
+            
+        
+    </div>
+    
+    <form ng-submit="todoList.addTodo()" class="ui icon input" id="message-field-wrapper">
+        <input ng-model="todoList.todoText" type="text" id="message-field" placeholder="Enter a message">
+        <button class="ui icon button" type="submit" id="send-message-button"><i class="send icon"></i></button>
+    </form>
+        
+    
+
+
+
+
+
+<!--
+    <script type="text/javascript">
+        
+        $("#send-message-button").click(function () {
+
+            $("#message-field").val('');
+            
+            
+
+        })
+    </script>
+-->
+
+</body>
+
+
+
+
+
+
+</html>
