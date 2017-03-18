@@ -6,6 +6,7 @@ Flask-WTF==0.9.5
 gcloud==0.17.0
 googleapis-common-protos==1.5.2
 greenlet==0.4.2
+gunicorn==19.7.0
 httplib2==0.10.3
 itsdangerous==0.24
 Jinja2==2.8
