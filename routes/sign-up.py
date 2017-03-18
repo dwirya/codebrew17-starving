@@ -17,5 +17,27 @@ db = firebase.database()
 def sign_up():
 	print(db.child("User").get().val())
 
+	form = RegisterForm()
 
-	return str("hi")
+		
+	auth = firebase.auth()
+		#user register in authentication database
+		
+	
+	user_data = auth.create_user_with_email_and_password(request.form["email"], request.form["password"])
+		
+	
+	#have to store user in user database	
+	data = {
+	    "firstName" : request.form["firstname"],
+		"lastName" : request.form["lastname"],
+	    "email" : request.form["email"],
+	    "emailVerified" : "false"
+	}
+
+	db.child('Users').child(user_data['localId']).child('UserDetails').set(data)
+	
+	session['logged_in'] = True
+
+		
+	return render_template("register.html",vars = template_vars, form=form)
