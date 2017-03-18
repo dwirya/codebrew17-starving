@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+
+
+<html>
+<head>
+
+  <title>
+      Login form
+  </title>
+
+  <link rel="stylesheet" src="Semantic/dist/semantic.min.css">
+
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/reset.css">
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/site.css">
+
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/container.css">
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/grid.css">
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/header.css">
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/image.css">
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/menu.css">
+
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/divider.css">
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/segment.css">
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/form.css">
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/input.css">
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/button.css">
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/list.css">
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/message.css">
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/icon.css">
+
+
+  <style type="text/css">
+      body {
+        background-color: #DADADA;
+      }
+      body > .grid {
+        height: 100%;
+      }
+      .image {
+        margin-top: 100px;
+        
+      }
+      .column {
+        max-width: 450px;
+      }
+
+      #grid{
+
+        padding-top: 15rem;
+
+
+      }
+  </style>
+
+  <script>
+  
+  </script>
+</head>
+
+
+
+
+
+
+<body>
+
+<div class="ui middle aligned center aligned grid" id="grid">
+  <div class="column">
+    <h2 class="ui teal image header">
+      <div class="content">
+        Log-in to your account
+      </div>
+    </h2>
+
+    <form class="ui large form">
+      <div class="ui stacked segment">
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="text" name="email" placeholder="E-mail address">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input type="password" name="password" placeholder="Password">
+          </div>
+        </div>
+        <div class="ui fluid large submit button">Login</div>
+      </div>
+
+      <div class="ui error message"></div>
+
+    </form>
+
+    <div class="ui message">
+      New to us? <a href="#">Sign Up</a>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>
