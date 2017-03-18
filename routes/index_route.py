@@ -1,5 +1,5 @@
 from flask import render_template, session
-from main import app
+from run import app
 
 #server/
 @app.route("/")
