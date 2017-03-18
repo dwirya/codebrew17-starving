@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 
-<html>
+<html ng-app="reconnectApp">
 
 <head>
 
@@ -15,54 +15,46 @@
 
     <script src="https://code.jquery.com/jquery-3.2.0.min.js" integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous"></script>
 
-
-
     <script src="semantic/dist/semantic.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
 
-    <script src="todo.js"></script>
-
+    <script src="app.js"></script>
 
     <style type="text/css">
-        
+
         #topbar-segment {
-            
-            
+
+
             margin-bottom: 0px;
             border-radius: 0;
-            
- 
+
+
         }
-        
+
         #topbar-menu-toggle-button {
-            
-            
+
+
         }
-        
+
         #topbar-right-button {
-            
+
             font-size: 1.2rem;
             white-space: nowrap;
         }
-        
+
          #landing-page-wrapper {
-                 
-            
+
+
             background: #D38312; /* fallback for old browsers */
             background: -webkit-linear-gradient(to bottom, #D38312 , #A83279); /* Chrome 10-25, Safari 5.1-6 */
             background: linear-gradient(to bottom, #D38312 , #A83279); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
             text-align: center;
         }
-        
-        #message-field {
-            
-            width: 100%;
-        }
-        
+
         #message-field-wrapper {
-            
+
             margin: 0 auto;
             width: 110%;
             position: fixed;
@@ -70,67 +62,79 @@
             background-color: #FFFFFF;
             margin-bottom: 0;
         }
-        
+
     </style>
 
 </head>
 
-<body>
+<body ng-controller="TodoListController as todoList">
 
-    <div class="ui inverted segment" id="topbar-segment" style="margin-bottom: 0;border-radius: 0;">
+    <header>
+      <div class="ui inverted segment" id="topbar-segment" style="margin-bottom: 0;border-radius: 0;">
 
-        <div class="ui three column grid">
+          <div class="ui three column grid">
 
-            <div class="row">
+              <div class="row">
 
-                <div class="column">
+                  <div class="column">
 
-                    <div class="item">
+                      <div class="item">
 
-                        <button class="ui inverted icon button" id="topbar-menu-toggle">
+                          <button class="ui inverted icon button" id="topbar-menu-toggle">
 
-                            <i class="list layout icon"></i>
+                              <i class="list layout icon"></i>
 
-                        </button>
+                          </button>
 
-                    </div>
+                      </div>
 
-                </div>
+                  </div>
 
-                <div class="column">
+                  <div class="column">
 
-                </div>
+                  </div>
 
-                <div class="column">
+                  <div class="column">
 
-                    <div class="ui inverted menu">
+                      <div class="ui inverted menu">
 
-                        <div class="right item">
+                          <div class="right item">
 
-                            <button class="ui inverted small button" id="topbar-right-button"><i class="user icon"></i>Connect</button>
+                              <button class="ui inverted small button" id="topbar-right-button"><i class="user icon"></i>Connect</button>
 
-                        </div>
+                          </div>
 
-                    </div>
+                      </div>
 
-                </div>
+                  </div>
 
+              </div>
+
+          </div>
+
+      </div>
+    </header>
+
+    <div class="container">
+
+        <div id="landing-page-wrapper">
+
+            <div class="message" ng-repeat="todo in todoList.todos track by $index" ng-class="todo.user.nickname == 'Me' ? 'me' : 'you'">
+              <div class="user" ng-if="todo.user.nickname != todoList.todos[$index-1].user.nickname">
+                <img class="avatar" src="{{todo.user.avatar}}" width="100" alt="">
+                <span class="name"> {{ todo.user.nickname }}</span>
+              </div>
+              <div class="text">
+                {{todo.text}}
+              </div>
             </div>
 
         </div>
 
     </div>
-    
-     
-    
+
     <div class="container">
-        
-        <div id="landing-page-wrapper"></div>
-        
-    </div>
-    
-    <div class="container">
-    
+
             <div class="row" id="message-field-segment">
 
                 <form ng-submit="todoList.addTodo()" class="ui icon input focus" id="message-field-wrapper">
@@ -138,9 +142,9 @@
                     <input ng-model="todoList.todoText" type="text" id="message-field" placeholder="Enter a message">
 
                     <button class="ui icon button" type="submit" id="send-message-button">
-                        
+
                         <i class="send icon"></i>
-                        
+
                     </button>
 
                 </form>
@@ -148,33 +152,33 @@
             </div>
 
         </div>
- 
+
     <script type="text/javascript">
-    
+
         var windowHeight = $(window).height();
-        
+
         var windowWidth = $(window).width();
-        
+
         var segmentHeight = $("#topbar-segment").height();
-        
+
         var segmentWidth = $("#topbar-segment").width();
-        
+
         var messageFieldHeight = $("#message-field-segment").height();
-    
-        
-        
+
+
+
         var landingPageHeight = windowHeight - segmentHeight - messageFieldHeight;
-        
+
         $("#landing-page-wrapper").css("height",[landingPageHeight]);
-        
+
         $("#message-field-wrapper").css("width",[windowWidth]);
-        
-        
-    
-    
-    
+
+
+
+
+
     </script>
-    
+
 </body>
 
 
