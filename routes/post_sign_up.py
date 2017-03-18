@@ -14,32 +14,31 @@ firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 
 @app.route("/sign-up",methods=['GET', 'POST'])
-def sign_up():
+def post_sign_up():
 		
 	
 
 	
 		
-	#auth = firebase.auth()
+	auth = firebase.auth()
 		#user register in authentication database
 	#print(request.form["email"])
 		
-	# user_data = auth.create_user_with_email_and_password(request.form["email"], request.form["password"])
+	user_data = auth.create_user_with_email_and_password(request.form["email"], request.form["password"])
 		
 	
 	# #have to store user in user database	
-	# data = {
-	#     	"firstName" : request.form["firstname"],
-	# 		"lastName" : request.form["lastname"],
-	#     	"email" : request.form["email"],
+	data = {
+	    "firstName" : request.form["firstname"],
+		"lastName" : request.form["lastname"],
+	    "email" : request.form["email"],
 	    	
-	# }
+	}
 
-	# db.child('User').child(user_data['localId']).set(data)
+	db.child('User').child(user_data['localId']).set(data)
 
 	#session['uid_email_verified'] = user_data['localId']		
 	#session['logged_in'] = True
 
 		
-	return render_template("sign-up.html")
-
+	return str("done")
