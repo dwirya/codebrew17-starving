@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+    <title>Codebrew-17</title>
+
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.2.0.min.js" integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous"></script>
+
+
+
+    <script src="semantic/dist/semantic.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+
+    <script src="todo.js"></script>
+
+
+    <style type="text/css">
+        
+        #topbar-segment {
+            
+            
+            margin-bottom: 0px;
+            border-radius: 0;
+            height: 5rem;
+            
+            
+        }
+        
+        #topbar-menu-toggle-button {
+            
+            
+        }
+        
+        #topbar-right-button {
+            
+            font-size: 1.2rem;
+        }
+        
+       
+        #landing-page-wrapper {
+                 
+            
+            background: #D38312; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to bottom, #D38312 , #A83279); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to bottom, #D38312 , #A83279); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+            text-align: center;
+        }
+        
+        #landing-page-button {
+            
+            margin-right: 0;
+            margin-left: 0;
+            position: relative;
+            top: 20rem;
+            
+            
+        }
+        
+        #landing-page-text-wrapper {
+            
+            padding-left: 10%;
+            width: 90%;
+            height: auto;
+            position: relative;
+            top: 30rem;
+            
+           
+        }
+        
+        #landing-page-text {
+            
+            font-weight: 400;
+            font-size: 1.7rem;
+            color: #FFFFFF;
+        }
+        
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="ui inverted segment" id="topbar-segment" style="margin-bottom: 0;border-radius: 0;">
+
+        <div class="ui three column grid">
+
+            <div class="row">
+                
+                <div class="column">
+
+                    <div class="item">
+
+                        <button class="ui inverted icon button" id="topbar-menu-toggle-button">
+
+                            <i class="list layout icon"></i>
+
+                        </button>
+
+                    </div>
+                    
+                </div>
+                
+                <div class="column">
+                
+                </div>
+                
+                <div class="column">
+
+                    <div class="ui inverted menu">
+
+                        <div class="right item">
+
+                            <button class="ui inverted  button" id="topbar-right-button">Login</button>
+
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+    <div class="container">
+        
+        <div id="landing-page-wrapper">
+            
+
+            <div id="landing-page-button-container">
+                
+                <button class="ui inverted black basic massive button" id="landing-page-button">Reconnect</button>
+                
+            </div>
+            
+            <div id="landing-page-text-wrapper">
+            
+                <h3 id="landing-page-text">"Find authentic relationships amidst the small talks." </h3>
+            
+            </div>
+           
+           
+        </div>
+        
+    </div>
+
+    
+    <script type="text/javascript">
+    
+        var windowHeight = $(window).height();
+        
+        var segmentHeight = $("#topbar-segment").height();
+        
+        
+        var landingPageHeight = windowHeight - segmentHeight ;
+        
+        $("#landing-page-wrapper").css("height",[landingPageHeight]);
+    
+    
+    
+    </script>
+
+
+
+
+</body>
+
+
+
+
+</html>

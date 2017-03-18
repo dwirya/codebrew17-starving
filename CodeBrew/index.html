@@ -18,58 +18,87 @@
 
 
     <script src="semantic/dist/semantic.min.js"></script>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
-    
+
     <script src="todo.js"></script>
 
 
+    <style type="text/css">
+    
+        body {
+            
+            width: 100%;
+        }
+        
+    
+    </style>
 
 
 </head>
 
 <body ng-controller="TodoListController as todoList">
-    
-    <div class="ui three column grid">
-        
-        <div ng-repeat="todo in todoList.todos" class="row">
-            
-            <div class="ui three wide column">
-                
-                <img src="Semantic/examples/images/"
-            
+
+    <div class="container">
+
+        <div class="ui three column grid">
+
+            <div ng-repeat="todo in todoList.todos" class="row">
+
+                <div class="ui three wide column">
+
+                    <img src="Semantic/examples/images/cat.png">
+                    
+                </div>
+
+                <div class="ui ten wide column">
+
+                    {{todo.text}}
+
+                </div>
+
+                <div class="ui three wide column">
+
+                    text
+
+                </div>
+
             </div>
-            
-            <div class="ui ten wide column">
-            
-                {{todo.text}}
-                
-            </div>
-            
-            <div class="ui three wide column">
-            
-                
-                
-            </div>
+
+
+
+        </div>
         
         </div>
         
+
+        <div class="ui grid">
             
+            <div class="row fixed bottom">
+
+                <form ng-submit="todoList.addTodo()" class="ui icon input" id="message-field-wrapper">
+
+                    <input ng-model="todoList.todoText" type="text" id="message-field" placeholder="Enter a message">
+
+                    <button class="ui icon button" type="submit" id="send-message-button">
+                        <i class="send icon"></i>
+                    </button>
+
+                </form>
+
+            </div>
+
+
+        </div>
         
-    </div>
-    
-    <form ng-submit="todoList.addTodo()" class="ui icon input" id="message-field-wrapper">
-        <input ng-model="todoList.todoText" type="text" id="message-field" placeholder="Enter a message">
-        <button class="ui icon button" type="submit" id="send-message-button"><i class="send icon"></i></button>
-    </form>
         
-    
+
+        
+       
 
 
 
-
-
-<!--
+        <!--
     <script type="text/javascript">
         
         $("#send-message-button").click(function () {
