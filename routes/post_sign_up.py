@@ -16,14 +16,7 @@ db = firebase.database()
 @app.route("/post-sign-up",methods=['GET', 'POST'])
 def post_sign_up():
 		
-	
-
-	
-		
-	auth = firebase.auth()
-		#user register in authentication database
-	#print(request.form["email"])
-		
+	auth = firebase.auth()	
 	user_data = auth.create_user_with_email_and_password(request.form["email"], request.form["password"])
 		
 	
@@ -36,9 +29,5 @@ def post_sign_up():
 	}
 
 	db.child('User').child(user_data['localId']).set(data)
-
-	#session['uid_email_verified'] = user_data['localId']		
-	#session['logged_in'] = True
-
-		
+	
 	return str("done")

@@ -13,7 +13,11 @@ config = {
 firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 
-@app.route("/sign-up",methods=['GET', 'POST'])
-def sign_up():
-	return render_template("sign-up.html")
-
+@app.route("/post-login",methods=['GET', 'POST'])
+def post_login():
+		
+	auth = firebase.auth()	
+	user_data = auth.sign_in_with_email_and_password(request.form["email"], request.form["password"])
+		
+	
+	return str("done")
