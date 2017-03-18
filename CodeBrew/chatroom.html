@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
 
@@ -18,8 +18,6 @@
     <script src="semantic/dist/semantic.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
-
-    <script src="app.js"></script>
 
     <style type="text/css">
 
@@ -121,12 +119,12 @@
 
             <div class="message" ng-repeat="todo in todoList.todos track by $index" ng-class="todo.user.nickname == 'Me' ? 'me' : 'you'">
               <div class="user" ng-if="todo.user.nickname != todoList.todos[$index-1].user.nickname">
-                <img class="avatar" src="{{todo.user.avatar}}" width="100" alt="">
-                <span class="name"> {{ todo.user.nickname }}</span>
+                <img class="avatar" src="{{todo.user.avatar}}" alt="">
+                <div class="name"> {{ todo.user.nickname }}</div>
               </div>
-              <div class="text">
+              <span class="text">
                 {{todo.text}}
-              </div>
+              </span>
             </div>
 
         </div>
@@ -152,29 +150,19 @@
             </div>
 
         </div>
-
+    <script src="js/app.js"></script>
     <script type="text/javascript">
 
         var windowHeight = $(window).height();
-
         var windowWidth = $(window).width();
-
         var segmentHeight = $("#topbar-segment").height();
-
         var segmentWidth = $("#topbar-segment").width();
-
         var messageFieldHeight = $("#message-field-segment").height();
-
-
-
         var landingPageHeight = windowHeight - segmentHeight - messageFieldHeight;
 
         $("#landing-page-wrapper").css("height",[landingPageHeight]);
 
         $("#message-field-wrapper").css("width",[windowWidth]);
-
-
-
 
 
     </script>

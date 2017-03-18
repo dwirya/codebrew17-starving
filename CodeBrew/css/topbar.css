@@ -1,0 +1,36 @@
+#topbar-segment {
+  margin-bottom: 0px;
+  border-radius: 0;
+  height: 5rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.5);
+  /* */ }
+
+#topbar-right-button {
+  font-size: 1.2rem; }
+
+#landing-page-wrapper {
+  text-align: center; }
+
+#landing-page-button {
+  margin-right: 0;
+  margin-left: 0;
+  position: relative;
+  top: 20rem; }
+
+#landing-page-text-wrapper {
+  padding-left: 10%;
+  width: 90%;
+  height: auto;
+  position: relative;
+  top: 30rem; }
+
+#landing-page-text {
+  font-weight: 400;
+  font-size: 1.7rem;
+  color: #FFFFFF; }
+
+/*# sourceMappingURL=topbar.css.map */
