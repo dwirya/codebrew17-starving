@@ -17,7 +17,7 @@ db = firebase.database()
 def sign_up():
 		
 	
-
+   
 	
 		
 	#auth = firebase.auth()

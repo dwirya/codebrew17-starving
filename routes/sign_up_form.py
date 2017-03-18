@@ -8,4 +8,4 @@ class RegisterForm(Form):
     lastname = StringField()
     password = PasswordField(validators=[DataRequired("Please enter password"),Length(min = 8,message="Password must be at least 8 characters long"),EqualTo('confirm',message="Passwords must match")])
     confirm = PasswordField()
-   
+      

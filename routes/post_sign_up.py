@@ -13,7 +13,7 @@ config = {
 firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 
-@app.route("/sign-up",methods=['GET', 'POST'])
+@app.route("/post-sign-up",methods=['GET', 'POST'])
 def post_sign_up():
 		
 	
