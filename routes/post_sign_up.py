@@ -16,10 +16,6 @@ db = firebase.database()
 @app.route("/post-sign-up",methods=['GET', 'POST'])
 def post_sign_up():
 		
-	
-
-	
-		
 	auth = firebase.auth()
 		#user register in authentication database
 	#print(request.form["email"])

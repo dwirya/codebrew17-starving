@@ -1,6 +1,11 @@
 click==6.7
 Flask==0.12
+Flask-WTF==0.14.2
 gcloud==0.17.0
+gevent==1.2.1
+gevent-socketio==0.3.6
+gevent-websocket==0.10.1
+greenlet==0.4.12
 gunicorn==19.7.0
 httplib2==0.10.3
 itsdangerous==0.24
@@ -19,3 +24,4 @@ requests-toolbelt==0.7.0
 rsa==3.4.2
 six==1.10.0
 Werkzeug==0.12.1
+WTForms==2.1
