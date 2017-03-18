@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+
+
+<html>
+
+<head>
+
+    <title>Codebrew-17</title>
+
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.2.0.min.js" integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous"></script>
+
+
+
+    <script src="semantic/dist/semantic.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+
+    <script src="todo.js"></script>
+
+
+    <style type="text/css">
+        
+        #topbar-segment {
+            
+            
+            margin-bottom: 0px;
+            border-radius: 0;
+            
+ 
+        }
+        
+        #topbar-menu-toggle-button {
+            
+            
+        }
+        
+        #topbar-right-button {
+            
+            font-size: 1.2rem;
+            white-space: nowrap;
+        }
+        
+         #landing-page-wrapper {
+                 
+            
+            background: #D38312; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to bottom, #D38312 , #A83279); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to bottom, #D38312 , #A83279); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+            text-align: center;
+        }
+        
+        #message-field {
+            
+            width: 100%;
+        }
+        
+        #message-field-wrapper {
+            
+            margin: 0 auto;
+            width: 110%;
+            position: fixed;
+            bottom: 0;
+            background-color: #FFFFFF;
+            margin-bottom: 0;
+        }
+        
+    </style>
+
+</head>
+
+<body>
+
+    <div class="ui inverted segment" id="topbar-segment" style="margin-bottom: 0;border-radius: 0;">
+
+        <div class="ui three column grid">
+
+            <div class="row">
+
+                <div class="column">
+
+                    <div class="item">
+
+                        <button class="ui inverted icon button" id="topbar-menu-toggle">
+
+                            <i class="list layout icon"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="column">
+
+                </div>
+
+                <div class="column">
+
+                    <div class="ui inverted menu">
+
+                        <div class="right item">
+
+                            <button class="ui inverted small button" id="topbar-right-button"><i class="user icon"></i>Connect</button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+     
+    
+    <div class="container">
+        
+        <div id="landing-page-wrapper"></div>
+        
+    </div>
+    
+    <div class="container">
+    
+            <div class="row" id="message-field-segment">
+
+                <form ng-submit="todoList.addTodo()" class="ui icon input focus" id="message-field-wrapper">
+
+                    <input ng-model="todoList.todoText" type="text" id="message-field" placeholder="Enter a message">
+
+                    <button class="ui icon button" type="submit" id="send-message-button">
+                        
+                        <i class="send icon"></i>
+                        
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+ 
+    <script type="text/javascript">
+    
+        var windowHeight = $(window).height();
+        
+        var windowWidth = $(window).width();
+        
+        var segmentHeight = $("#topbar-segment").height();
+        
+        var segmentWidth = $("#topbar-segment").width();
+        
+        var messageFieldHeight = $("#message-field-segment").height();
+    
+        
+        
+        var landingPageHeight = windowHeight - segmentHeight - messageFieldHeight;
+        
+        $("#landing-page-wrapper").css("height",[landingPageHeight]);
+        
+        $("#message-field-wrapper").css("width",[windowWidth]);
+        
+        
+    
+    
+    
+    </script>
+    
+</body>
+
+
+
+
+</html>
