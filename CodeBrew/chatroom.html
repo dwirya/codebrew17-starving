@@ -47,7 +47,8 @@
             background: #D38312; /* fallback for old browsers */
             background: -webkit-linear-gradient(to bottom, #D38312 , #A83279); /* Chrome 10-25, Safari 5.1-6 */
             background: linear-gradient(to bottom, #D38312 , #A83279); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+            /*height: auto;*/
+            height: auto;
             text-align: center;
         }
 
@@ -65,8 +66,7 @@
 
 </head>
 
-<body ng-controller="TodoListController as todoList">
-
+<body ng-controller="MainController">
     <header>
       <div class="ui inverted segment" id="topbar-segment" style="margin-bottom: 0;border-radius: 0;">
 
@@ -117,13 +117,13 @@
 
         <div id="landing-page-wrapper">
 
-            <div class="message" ng-repeat="todo in todoList.todos track by $index" ng-class="todo.user.nickname == 'Me' ? 'me' : 'you'">
-              <div class="user" ng-if="todo.user.nickname != todoList.todos[$index-1].user.nickname">
-                <img class="avatar" src="{{todo.user.avatar}}" alt="">
-                <div class="name"> {{ todo.user.nickname }}</div>
+            <div class="message" ng-repeat="message in messages track by $index" ng-class="message.user.nickname == 'Me' ? 'me' : 'you'">
+              <div class="user" ng-if="message.user.nickname != messages[$index-1].user.nickname">
+                <img class="avatar" src="{{message.user.avatar}}" alt="">
+                <div class="name"> {{ message.user.nickname }}</div>
               </div>
               <span class="text">
-                {{todo.text}}
+                {{message.text}}
               </span>
             </div>
 
@@ -135,9 +135,9 @@
 
             <div class="row" id="message-field-segment">
 
-                <form ng-submit="todoList.addTodo()" class="ui icon input focus" id="message-field-wrapper">
+                <form ng-submit="sendMessage()" class="ui icon input focus" id="message-field-wrapper">
 
-                    <input ng-model="todoList.todoText" type="text" id="message-field" placeholder="Enter a message">
+                    <input ng-model="inputText" type="text" id="message-field" placeholder="Enter a message">
 
                     <button class="ui icon button" type="submit" id="send-message-button">
 
@@ -152,7 +152,6 @@
         </div>
     <script src="js/app.js"></script>
     <script type="text/javascript">
-
         var windowHeight = $(window).height();
         var windowWidth = $(window).width();
         var segmentHeight = $("#topbar-segment").height();
@@ -160,10 +159,15 @@
         var messageFieldHeight = $("#message-field-segment").height();
         var landingPageHeight = windowHeight - segmentHeight - messageFieldHeight;
 
-        $("#landing-page-wrapper").css("height",[landingPageHeight]);
+        $("#landing-page-wrapper").css("min-height",landingPageHeight);
 
-        $("#message-field-wrapper").css("width",[windowWidth]);
+        $("#message-field-wrapper").css("width", windowWidth);
 
+        // $('form').on('submit',function() {
+        //     $('.message').animate({
+        //       top: '-100px'
+        //     }, 'slow')
+        // });
 
     </script>
 

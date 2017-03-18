@@ -1,7 +1,6 @@
 angular.module('reconnectApp', [])
-  .controller('TodoListController', function() {
-    var todoList = this;
-    todoList.todos = [
+  .controller('MainController', ['$scope', function($scope) {
+    $scope.messages = [
       {
         text:'Hello there',
         user:
@@ -18,9 +17,11 @@ angular.module('reconnectApp', [])
           }
       }];
 
-    todoList.addTodo = function() {
-      todoList.todos.push({text:todoList.todoText, user:{nickname:'Me', avatar:'avatar/penguin.png'}});
-      todoList.todoText = '';
+    $scope.sendMessage = function() {
+      if ($scope.inputText) {
+        $scope.messages.push({text:$scope.inputText, user:{nickname:'Me', avatar:'avatar/penguin.png'}});
+        $scope.inputText = '';
+      }
     };
 
     // todoList.remaining = function() {
@@ -38,4 +39,4 @@ angular.module('reconnectApp', [])
     //     if (!todo.done) todoList.todos.push(todo);
     //   });
     // };
-  });
+  }]);
