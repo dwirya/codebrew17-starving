@@ -1,10 +1,13 @@
 angular.module('reconnectApp', [])
   .controller('MainController', ['$scope', function($scope) {
+    $scope.connected = false;
     $scope.messages = [
       {
         text:'Hello there',
         user:
           {
+            name: 'Anushka',
+            profile: 'avatar/Anushka_real.jpg',
             nickname:'Nerdy Cat',
             avatar:'avatar/cat.png'
           }
@@ -12,6 +15,8 @@ angular.module('reconnectApp', [])
         text:'What do you think about the movive "moonlight" ?',
         user:
           {
+            name: 'Anushka',
+            profile: 'avatar/Anushka_real.jpg',
             nickname:'Nerdy Cat',
             avatar:'avatar/cat.png'
           }
@@ -19,24 +24,14 @@ angular.module('reconnectApp', [])
 
     $scope.sendMessage = function() {
       if ($scope.inputText) {
-        $scope.messages.push({text:$scope.inputText, user:{nickname:'Me', avatar:'avatar/penguin.png'}});
+        $scope.messages.push({text:$scope.inputText, user:{name:'Jun', profile:'avatar/Jun_real.jpg', nickname:'Me', avatar:'avatar/penguin.png'}});
         $scope.inputText = '';
       }
     };
 
-    // todoList.remaining = function() {
-    //   var count = 0;
-    //   angular.forEach(todoList.todos, function(todo) {
-    //     count += todo.done ? 0 : 1;
-    //   });
-    //   return count;
-    // };
-    //
-    // todoList.archive = function() {
-    //   var oldTodos = todoList.todos;
-    //   todoList.todos = [];
-    //   angular.forEach(oldTodos, function(todo) {
-    //     if (!todo.done) todoList.todos.push(todo);
-    //   });
-    // };
+    $scope.clickFn = function() {
+      $scope.connected = true;
+      $('#real-profile').modal('show');
+    }
+
   }]);

@@ -7,27 +7,30 @@
 
     <title>Codebrew-17</title>
 
-    
-    
+
+
     <link rel="stylesheet" href="css/style.css">
-    
+
      <link rel="stylesheet" href="Semantic/dist/components/sidebar.css">
-    
+
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
-    
+
 
     <script src="https://code.jquery.com/jquery-3.2.0.min.js" integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous"></script>
 
-    
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+<<<<<<< HEAD
     
     
+=======
+>>>>>>> 09bfd5bb7f2913529826b9a50aa52460fd95b528
 
     <style type="text/css">
 
@@ -40,11 +43,11 @@
 
         }
 
-        
+
         #topbar-right-button {
 
             font-size: 1.2rem;
-            
+
         }
 
          #landing-page-wrapper {
@@ -58,22 +61,6 @@
             text-align: center;
         }
 
-        #message-field-wrapper {
-
-            margin: 0 auto;
-            width: 110%;
-            position: fixed;
-            bottom: 0;
-            background-color: #FFFFFF;
-            margin-bottom: 0;
-        }
-        
-        @media only screen and (max-width: 500px){
-            
-            
-            
-        }
-
     </style>
 
 </head>
@@ -81,9 +68,9 @@
 <body ng-controller="MainController">
     <header>
       <div class="ui inverted segment" id="topbar-segment" style="margin-bottom: 0;border-radius: 0;">
-          
+
           <div class="ui sidebar inverted vertical menu">
-              
+
                     <a class="item">
                       1
                     </a>
@@ -94,12 +81,14 @@
                       3
                     </a>
          </div>
-          
-        <div class="ui large modal real-profile">
-            
-            
-          <div class="header">Profile of Anushka Mudholkar </div>
-            
+
+        <div id="real-profile" class="ui small modal">
+
+              <div class="header">
+                <h1>Congratulations, you've connected with each other.</h1>
+              </div>
+          <!-- <div class="header">Profile of Anushka Mudholkar </div> -->
+
               <div class="image content">
 
                   <div class="ui medium image">
@@ -111,24 +100,28 @@
                   <div class="description">
 
                       <div class="ui header">Name :</div>
-                      
-                      <p>Anushka Mudholkar</p>
-                      
+
+                      <h3>Anushka Mudholkar</h3>
+
                       <div class="ui header">Country of origin :</div>
-                      
-                      <p><i class="in flag"></i>India</p>
-                      
+
+                      <h3><i class="in flag"></i>India</h3>
+
                       <div class="ui header">My story :</div>
-                      
+
                       <p>Just a kind angel dealing with stubborn computers. </p>
 
-
                  </div>
-                      
+
                 </div>
- 
+                <div class="actions">
+                  <div class="ui black deny button">
+                    Back to chat
+                  </div>
+                </div>
+
           </div>
-           
+
 
           <div class="ui three column grid">
 
@@ -153,6 +146,7 @@
                   </div>
 
                   <div class="column" id="session-timer">
+<<<<<<< HEAD
                       
                       <div class="ui centered aligned grid" id="timer-div">
                       
@@ -176,6 +170,11 @@
                       
                       </div>
                       
+=======
+
+                      <h1>07:01</h1>
+
+>>>>>>> 09bfd5bb7f2913529826b9a50aa52460fd95b528
                   </div>
 
                   <div class="column">
@@ -184,7 +183,10 @@
 
                           <div class="right item">
 
-                              <button class="ui inverted small button" id="topbar-right-button" type="button"><i class="user icon"></i>Connect</button>
+                              <button ng-Click="clickFn()" class="ui inverted small button" id="topbar-right-button" type="button">
+                                <i class="user icon"></i>
+                                Connect
+                              </button>
 
                           </div>
 
@@ -202,10 +204,10 @@
     <div class="container">
 
         <div id="landing-page-wrapper">
-            
+
             <div class="container fluid">
-                
-                
+
+
 
                 <div class="row" id="question">
 
@@ -213,56 +215,45 @@
 
 
                 </div>
-                
-                
-                <div class="message" ng-repeat="message in messages track by $index" ng-class="message.user.nickname == 'Me' ? 'me' : 'you'">
+
+
+            <div class="message" ng-repeat="message in messages track by $index" ng-class="message.user.nickname == 'Me' ? 'me' : 'you'">
               <div class="user" ng-if="message.user.nickname != messages[$index-1].user.nickname">
-                <img class="avatar" src="{{message.user.avatar}}" alt="">
-                <div class="name"> {{ message.user.nickname }}</div>
+                <img class="avatar" src="{{connected? message.user.profile : message.user.avatar}}" alt="">
+                <div class="name"> {{connected? message.user.name : message.user.nickname }}</div>
               </div>
               <span class="text">
                 {{message.text}}
               </span>
             </div>
 
-            
+
             </div>
 
-            
-            
-            
+
+
+
 
         </div>
 
     </div>
 
-    <div class="container">
 
-            <div class="row" id="message-field-segment">
+        <form id="message-field-wrapper" ng-submit="sendMessage()" class="ui icon input focus">
+            <input ng-model="inputText" type="text" placeholder="Enter a message">
+            <button class="ui icon button" type="submit" id="send-message-button">
+                <i class="send icon"></i>
+            </button>
+        </form>
 
-                <form ng-submit="sendMessage()" class="ui icon input focus" id="message-field-wrapper">
-
-                    <input ng-model="inputText" type="text" id="message-field" placeholder="Enter a message">
-
-                    <button class="ui icon button" type="submit" id="send-message-button">
-
-                        <i class="send icon"></i>
-
-                    </button>
-
-                </form>
-
-            </div>
-
+<<<<<<< HEAD
         </div>
     
+=======
+>>>>>>> 09bfd5bb7f2913529826b9a50aa52460fd95b528
     <script src="js/app.js"></script>
-    
+
     <script type="text/javascript">
-        
-        
-        
-        
         var windowHeight = $(window).height();
         var windowWidth = $(window).width();
         var segmentHeight = $("#topbar-segment").height();
@@ -271,6 +262,7 @@
         var landingPageHeight = windowHeight - segmentHeight - messageFieldHeight;
 
         $("#landing-page-wrapper").css("min-height",landingPageHeight);
+<<<<<<< HEAD
 
         $("#message-field-wrapper").css("width", windowWidth);
 
@@ -412,6 +404,8 @@
 //        initializeClock('clockdiv', deadline);
         
 
+=======
+>>>>>>> 09bfd5bb7f2913529826b9a50aa52460fd95b528
     </script>
 
 </body>
