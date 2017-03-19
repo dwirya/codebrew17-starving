@@ -1,0 +1,79 @@
+#session-timer
+    text-align: center
+    
+
+#question
+    color: #FFFFFF
+    padding-top: 3rem
+    margin-bottom: 10rem
+    font-size: 2rem
+    margin-left: 5%
+    margin-right: 5%
+    width: 90%
+    height: auto
+    
+    
+.real-profile
+    .profile-photo
+        width: 20rem
+        height: 20rem
+        
+    .user-info
+        
+        margin-bottom: 2rem
+        
+
+.message
+    margin: 0 auto 20px
+    width: 80%
+    position: relative
+    height: 100px
+    display: flex
+
+    .text
+        font-size: 1rem
+        background: rgba(255, 255, 255, .9)
+        border-radius: 10px
+        position: relative
+        margin: auto 0
+        line-height: 5rem
+        padding: 0 20px
+
+        &::before
+            content: ''
+            width: 0
+            position: absolute
+            top: 50%
+            margin-top: -10px
+            border: 10px solid transparent
+
+    .user
+        position: absolute
+        width: auto
+        height: 100%
+        .avatar
+            max-width: 100%
+            max-height: 100%
+            border-radius: 100%
+
+
+.me
+    &.message
+        justify-content: flex-end
+    .user
+        right: 0
+    .text
+        margin-right: 150px
+        &::before
+            right: -20px
+            border-left-color: rgba(255, 255, 255, .9)
+.you
+    &.message
+        justify-content: flex-start
+    .user
+        left: 0
+    .text
+        margin-left: 150px
+        &::before
+            left: -20px
+            border-right-color: rgba(255, 255, 255, .9)
