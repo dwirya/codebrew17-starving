@@ -76,7 +76,26 @@
                       3
                     </a>
          </div>
-
+         <div id="options" class="ui small basic modal">
+           <div class="ui icon header">
+             <i class="add user icon"></i>
+             Time's up! I'd like to ...
+           </div>
+           <div class="actions">
+             <div class="ui red cancel inverted button">
+               <i class="remove icon"></i>
+               Pass
+             </div>
+             <div class="ui yellow basic cancel inverted button">
+               <i class="help icon"></i>
+               Next Question
+             </div>
+             <div class="ui green ok inverted button">
+               <i class="checkmark icon"></i>
+               Connect
+             </div>
+           </div>
+        </div>
         <div id="real-profile" class="ui small modal">
 
               <div class="header">
@@ -126,11 +145,12 @@
 
                       <div class="item">
 
-                          <button class="ui inverted icon button" id="topbar-menu-toggle">
+                          <a href="front_page.html"><button class="ui inverted icon button" id="topbar-menu-toggle">
 
-                              <i class="list layout icon"></i>
+                              <i class="chevron left icon"></i>
 
                           </button>
+                        </a>
 
                       </div>
 
@@ -138,7 +158,7 @@
 
                   <div class="column" id="session-timer">
 
-                      <h1>07:01</h1>
+                    <h1 ng-init="timeModal()" id="time">00:10</h1>
 
                   </div>
 
@@ -222,6 +242,7 @@
         var landingPageHeight = windowHeight - segmentHeight - messageFieldHeight;
 
         $("#landing-page-wrapper").css("min-height",landingPageHeight);
+
     </script>
 
 </body>

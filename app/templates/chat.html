@@ -1,8 +1,47 @@
 <html>
     <head>
         <title>Chatting</title>
-        <script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="Semantic/dist/components/sidebar.css">
+        <script src="https://code.jquery.com/jquery-3.2.0.min.js" integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+        <style type="text/css">
+
+            #topbar-segment {
+
+
+                margin-bottom: 0px;
+                border-radius: 0;
+
+
+            }
+
+
+            #topbar-right-button {
+
+                font-size: 1.2rem;
+
+            }
+
+             #landing-page-wrapper {
+
+
+                background: #D38312; /* fallback for old browsers */
+                background: -webkit-linear-gradient(to bottom, #D38312 , #A83279); /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to bottom, #D38312 , #A83279); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                /*height: auto;*/
+                height: auto;
+                text-align: center;
+            }
+
+        </style>
+
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+
         <script type="text/javascript" charset="utf-8">
             var socket;
             $(document).ready(function(){
@@ -38,9 +77,114 @@
         </script>
     </head>
     <body>
-        <h1>Flask-SocketIO-Chat: {{ room }}</h1>
+      <header>
+        <div class="ui inverted segment" id="topbar-segment" style="margin-bottom: 0;border-radius: 0;">
+
+            <div class="ui sidebar inverted vertical menu">
+
+                      <a class="item">
+                        1
+                      </a>
+                      <a class="item">
+                        2
+                      </a>
+                      <a class="item">
+                        3
+                      </a>
+           </div>
+
+          <div id="real-profile" class="ui small modal">
+
+                <div class="header">
+                  <h1>Congratulations, you've connected with each other.</h1>
+                </div>
+            <!-- <div class="header">Profile of Anushka Mudholkar </div> -->
+
+                <div class="image content">
+
+                    <div class="ui medium image">
+
+                      <img class="image profile-photo" src="avatar/Anushka_real.jpg">
+
+                   </div>
+
+                    <div class="description">
+
+                        <div class="ui header">Name :</div>
+
+                        <h3>Anushka Mudholkar</h3>
+
+                        <div class="ui header">Country of origin :</div>
+
+                        <h3><i class="in flag"></i>India</h3>
+
+                        <div class="ui header">My story :</div>
+
+                        <p>Just a kind angel dealing with stubborn computers. </p>
+
+                   </div>
+
+                  </div>
+                  <div class="actions">
+                    <div class="ui black deny button">
+                      Back to chat
+                    </div>
+                  </div>
+
+            </div>
+
+
+            <div class="ui three column grid">
+
+                <div class="row">
+
+                    <div class="column">
+
+                        <div class="item">
+
+                            <button class="ui inverted icon button" id="topbar-menu-toggle">
+
+                                <i class="list layout icon"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="column" id="session-timer">
+
+                      <h1 ng-Click="stopTimer()" id="time">05:00</h1>
+
+                    </div>
+
+                    <div class="column">
+
+                        <div class="ui inverted menu">
+
+                            <div class="right item">
+
+                                <button ng-Click="clickFn()" class="ui inverted small button" id="topbar-right-button" type="button">
+                                  <i class="user icon"></i>
+                                  Connect
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+      </header>
+        <!-- <h1>Flask-SocketIO-Chat: {{ room }}</h1> -->
         <textarea id="chat" cols="80" rows="20"></textarea><br><br>
         <input id="text" size="80" placeholder="Enter your message here"><br><br>
         <a href="#" onclick="leave_room();">Leave this room</a>
+
     </body>
 </html>

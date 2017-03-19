@@ -11,11 +11,11 @@ def index():
     form = LoginForm()
     if form.validate_on_submit():
         session['name'] = form.name.data
-        # session['room'] = form.room.data
+        session['room'] = form.room.data
         return redirect(url_for('.chat'))
     elif request.method == 'GET':
         form.name.data = session.get('name', '')
-        # form.room.data = session.get('room', '')
+        form.room.data = session.get('room', '')
     return render_template('index.html', form=form)
 
 
@@ -46,30 +46,30 @@ def login():
 
 @main.route("/post-login",methods=['GET', 'POST'])
 def post_login():
-        
-    auth = firebase.auth()  
+
+    auth = firebase.auth()
     user_data = auth.sign_in_with_email_and_password(request.form["email"], request.form["password"])
-        
-    
+
+
     return str("done")
 
 @main.route("/post-sign-up",methods=['GET', 'POST'])
 def post_sign_up():
 
-    auth = firebase.auth()  
+    auth = firebase.auth()
     user_data = auth.create_user_with_email_and_password(request.form["email"], request.form["password"])
-        
-    
-    # #have to store user in user database  
+
+
+    # #have to store user in user database
     data = {
         "firstName" : request.form["firstname"],
         "lastName" : request.form["lastname"],
         "email" : request.form["email"],
-            
+
     }
 
     db.child('User').child(user_data['localId']).set(data)
-    
+
     return str("done")
 
 
@@ -77,10 +77,3 @@ def post_sign_up():
 @main.route("/sign-up",methods=['GET', 'POST'])
 def sign_up():
     return render_template("sign-up.html")
-
-
-
-
-
-
-
