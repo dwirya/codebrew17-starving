@@ -1,17 +1,105 @@
+<!DOCTYPE HTML>
+
+
 <html>
+<head>
+
+  <title>
+      Sign up
+  </title>
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='Semantic/dist/semantic.min.css') }}">
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='Semantic/dist/components/reset.css') }}">
+
+  <style type="text/css">
+      body {
+        background-image: url("{{ url_for('static',filename='assets/login-page-bg.jpeg') }}");
+        background-size: cover;
+        backgroud-origin: 50% 50%;
+      }
+      body > .grid {
+        height: 100%;
+      }
+      .image {
+        margin-top: 100px;
+        
+      }
+      .column {
+        max-width: 450px;
+      }
+
+      #grid{
+
+        padding-top: 15rem;
 
 
-	<form action="post-sign-up" method="post">
-		first name: <input type= "text" name="firstname"><br>
-		last name: <input type= "text" name="lastname"><br>
-		email: <input type= "text" name="email"><br>
-		location: <input type= "text" name="location"><br>
-		story: <input type= "text" name="story"><br>
-		password: <input type="password" name="password"><br>
-		<input type="submit" name="submit">
-   
+      }
 
-	</form>
+      #login-header{
+
+      	color: #F79354;
+
+      }
+  </style>
+
+  <script>
+  
+  </script>
+</head>
+
+
+<body>
+
+<div class="ui middle aligned center aligned grid" id="grid">
+  <div class="column">
+    <h2 class="ui black image header">
+      <p id="login-header">
+        Sign-up!
+      </p>
+    </h2>
+
+    <form method="post" action="post-sign-up" class="ui large form">
+      <div class="ui stacked segment">
+      	<div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type= "text" name="firstname" placeholder="First name">
+          </div>
+        </div>
+      	<div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type= "text" name="lastname" placeholder="Last Name">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="text" name="email" placeholder="E-mail address">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input type="password" name="password" placeholder="Password">
+          </div>
+        </div>
+        <input type="submit" name="submit" class="ui fluid large submit button"></input>
+      </div>
+
+      <div class="ui error message"></div>
+
+    </form>
+
+    <div class="ui message">
+      Got an account with us? <a href="/login">Log in</a>
+    </div>
+  </div>
+</div>
+
+</body>
+
 
 
 </html>

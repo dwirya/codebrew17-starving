@@ -23,11 +23,11 @@ def index():
 def chat():
     """Chat room. The user's name and room must be stored in
     the session."""
-    name = session.get('name', '')
-    room = session.get('room', '')
-    if name == '' or room == '':
-        return redirect(url_for('.index'))
-    return render_template('chat.html', name=name, room=room)
+    # name = session.get('name', '')
+    # room = session.get('room', '')
+    # if name == '' or room == '':
+    #     return redirect(url_for('.index'))
+    return render_template('chatroom.html')
 
 
 config = {
@@ -50,8 +50,8 @@ def post_login():
     auth = firebase.auth()  
     user_data = auth.sign_in_with_email_and_password(request.form["email"], request.form["password"])
         
-    
     return str("done")
+    #return render_template("chatroom.html")
 
 @main.route("/post-sign-up",methods=['GET', 'POST'])
 def post_sign_up():
@@ -70,6 +70,8 @@ def post_sign_up():
 
     db.child('User').child(user_data['localId']).set(data)
     
+    
+    #return render_template("chatroom.html")
     return str("done")
 
 

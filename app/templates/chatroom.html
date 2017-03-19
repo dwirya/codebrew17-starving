@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+
+
+<html ng-app="reconnectApp">
+
+<head>
+
+    <title>Codebrew-17</title>
+
+    
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+     <link rel="stylesheet" href="Semantic/dist/components/sidebar.css">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
+    
+
+    <script src="https://code.jquery.com/jquery-3.2.0.min.js" integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous"></script>
+
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+    
+    <script type="text/javascript">
+        
+        $("topbar-menu-toggle").click(function(){
+            
+            $('.ui.sidebar').sidebar('toggle');
+        
+    </script>
+
+    <style type="text/css">
+
+        #topbar-segment {
+
+
+            margin-bottom: 0px;
+            border-radius: 0;
+
+
+        }
+
+        
+        #topbar-right-button {
+
+            font-size: 1.2rem;
+            
+        }
+
+         #landing-page-wrapper {
+
+
+            background: #D38312; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to bottom, #D38312 , #A83279); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to bottom, #D38312 , #A83279); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            /*height: auto;*/
+            height: auto;
+            text-align: center;
+        }
+
+        #message-field-wrapper {
+
+            margin: 0 auto;
+            width: 110%;
+            position: fixed;
+            bottom: 0;
+            background-color: #FFFFFF;
+            margin-bottom: 0;
+        }
+        
+        @media only screen and (max-width: 500px){
+            
+            
+            
+        }
+
+    </style>
+
+</head>
+
+<body ng-controller="MainController">
+    <header>
+      <div class="ui inverted segment" id="topbar-segment" style="margin-bottom: 0;border-radius: 0;">
+          
+          <div class="ui sidebar inverted vertical menu">
+              
+                    <a class="item">
+                      1
+                    </a>
+                    <a class="item">
+                      2
+                    </a>
+                    <a class="item">
+                      3
+                    </a>
+         </div>
+          
+        <div class="ui large modal real-profile">
+            
+            
+          <div class="header">Profile of Anushka Mudholkar </div>
+            
+              <div class="image content">
+
+                  <div class="ui medium image">
+
+                    <img class="image profile-photo" src="avatar/Anushka_real.jpg">
+
+                 </div>
+
+                  <div class="description">
+
+                      <div class="ui header">Name :</div>
+                      
+                      <p>Anushka Mudholkar</p>
+                      
+                      <div class="ui header">Country of origin :</div>
+                      
+                      <p><i class="in flag"></i>India</p>
+                      
+                      <div class="ui header">My story :</div>
+                      
+                      <p>Just a kind angel dealing with stubborn computers. </p>
+
+
+                 </div>
+                      
+                </div>
+ 
+          </div>
+           
+
+          <div class="ui three column grid">
+
+              <div class="row">
+
+                  <div class="column">
+
+                      <div class="item">
+
+                          <button class="ui inverted icon button" id="topbar-menu-toggle">
+
+                              <i class="list layout icon"></i>
+
+                          </button>
+
+                      </div>
+
+                  </div>
+
+                  <div class="column" id="session-timer">
+                      
+                      <h1>07:01</h1>
+                      
+                  </div>
+
+                  <div class="column">
+
+                      <div class="ui inverted menu">
+
+                          <div class="right item">
+
+                              <button class="ui inverted small button" id="topbar-right-button" type="button"><i class="user icon"></i>Connect</button>
+
+                          </div>
+
+                      </div>
+
+                  </div>
+
+              </div>
+
+          </div>
+
+      </div>
+    </header>
+
+    <div class="container">
+
+        <div id="landing-page-wrapper">
+            
+            <div class="container fluid">
+                
+                
+
+                <div class="row" id="question">
+
+                    <p id="text">What if this world were to go round and round infinitely into the void ?</p>
+
+
+                </div>
+                
+                
+                <div class="message" ng-repeat="message in messages track by $index" ng-class="message.user.nickname == 'Me' ? 'me' : 'you'">
+              <div class="user" ng-if="message.user.nickname != messages[$index-1].user.nickname">
+                <img class="avatar" src="{{message.user.avatar}}" alt="">
+                <div class="name"> {{ message.user.nickname }}</div>
+              </div>
+              <span class="text">
+                {{message.text}}
+              </span>
+            </div>
+
+            
+            </div>
+
+            
+            
+            
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+            <div class="row" id="message-field-segment">
+
+                <form ng-submit="sendMessage()" class="ui icon input focus" id="message-field-wrapper">
+
+                    <input ng-model="inputText" type="text" id="message-field" placeholder="Enter a message">
+
+                    <button class="ui icon button" type="submit" id="send-message-button">
+
+                        <i class="send icon"></i>
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+    <script src="js/app.js"></script>
+    
+    <script type="text/javascript">
+        
+        
+        
+        
+        var windowHeight = $(window).height();
+        var windowWidth = $(window).width();
+        var segmentHeight = $("#topbar-segment").height();
+        var segmentWidth = $("#topbar-segment").width();
+        var messageFieldHeight = $("#message-field-segment").height();
+        var landingPageHeight = windowHeight - segmentHeight - messageFieldHeight;
+
+        $("#landing-page-wrapper").css("min-height",landingPageHeight);
+
+        $("#message-field-wrapper").css("width", windowWidth);
+
+//        $("#topbar-right-button").click(function(){
+//            
+//            
+//            $('.ui.modal')
+//  .modal("show");
+//            
+//        })
+        
+        
+        $('#topbar-right-button').click(function(){
+            
+            
+            $('.ui.large.modal').modal('show');
+            
+             
+            
+         
+    });
+        
+        $("#topbar-menu-toggle").click(function(){
+            
+            $('.ui.sidebar').sidebar('toggle');
+        
+            
+        })
+        
+        
+
+    </script>
+
+</body>
+
+
+
+
+</html>
