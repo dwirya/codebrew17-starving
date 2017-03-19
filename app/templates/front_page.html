@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+    <title>Codebrew-17</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='Semantic/dist/semantic.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/video.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/topbar.css') }}">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.2.0.min.js" integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous"></script>
+
+    <script src="{{ url_for('static',filename='Semantic/dist/semantic.js') }}"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+    
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+    
+
+
+</head>
+
+<body>
+
+    <div class="ui inverted segment" id="topbar-segment" style="margin-bottom: 0;border-radius: 0;">
+          
+<!--
+          <div class="ui sidebar inverted vertical menu">
+              
+                    <a class="item">
+                      <i class="users icon"></i>
+                    <p>Connections</p>
+                        
+                    </a>
+                    <a class="item">
+                      2
+                    </a>
+                    <a class="item">
+                      3
+                    </a>
+         </div>
+-->
+
+        <div class="ui three column grid">
+
+            <div class="row">
+
+                <div class="column">
+
+<!--
+                    <div class="item">
+
+                        <button class="ui inverted icon button" id="topbar-menu-toggle">
+
+                            <i class="list layout icon"></i>
+
+                        </button>
+
+                    </div>
+-->
+                    
+                    <div class="item">
+                    
+                        <img src="{{ url_for('static',filename='images/Logomakr_2pFq4G.png') }}" style="float:centre; width: 3rem; height: 3rem; position:absolute; left: rem; top: -0.2rem"> 
+                        
+                        <h2 style="float:left; margin-top:0.005rem; position: relative; left: 5rem;">Re-connect</h2>
+                        
+                    </div>
+
+                </div>
+
+                <div class="column">
+
+                    
+<!--                        -->
+                    
+                </div>
+
+                <div class="column">
+
+                    <div class="ui inverted menu">
+
+                        <div class="right item">
+
+                            <button class="ui inverted  button" id="topbar-right-button">Login</button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div id="landing-page-wrapper">
+
+            <div id="video-wrapper">
+              <video id="player" poster="{{ url_for('static',filename='Walking-Heads/Snapshots/Walking-Heads.jpg') }}" autoplay="" muted="" loop="">
+                <source src="../static/Walking-Heads/WEBM/Walking-Heads.webm" type="video/webm">
+                <source src="../static/Walking-Heads/MP4/Walking-Heads.mp4" type="video/mp4">
+              </video>
+              <div class="filter"></div>
+            </div>
+
+            <div id="landing-page-button-container">
+
+                <a href="chatroom.html" class="ui inverted black basic massive button" id="landing-page-button">Re-connect</a>
+
+            </div>
+
+            <div id="landing-page-text-wrapper">
+
+                <h3 id="landing-page-text">"Form authentic relationships through real conversation." </h3>
+
+            </div>
+
+    </div>
+        
+    </div>
+
+
+    <script type="text/javascript">
+
+        
+        $("#topbar-menu-toggle").click(function(){
+            
+            $(".ui.sidebar").sidebar('toggle');
+    
+        })
+
+    </script>
+
+
+
+
+</body>
+
+
+
+
+</html>

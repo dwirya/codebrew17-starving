@@ -14,7 +14,9 @@
 
   <style type="text/css">
       body {
-        background-color: #DADADA;
+        background-image: url("{{ url_for('static',filename='assets/login-page-bg.jpeg') }}");
+        background-size: cover;
+        backgroud-origin: 50% 50%;
       }
       body > .grid {
         height: 100%;
@@ -33,6 +35,12 @@
 
 
       }
+
+      #login-header{
+
+      	color: #F79354;
+
+      }
   </style>
 
   <script>
@@ -45,10 +53,10 @@
 
 <div class="ui middle aligned center aligned grid" id="grid">
   <div class="column">
-    <h2 class="ui teal image header">
-      <div class="content">
+    <h2 class="ui black image header">
+      <p id="login-header">
         Log-in to your account
-      </div>
+      </p>
     </h2>
 
     <form method="post" action="post-login" class="ui large form">
@@ -79,5 +87,7 @@
 </div>
 
 </body>
+
+
 
 </html>

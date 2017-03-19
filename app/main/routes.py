@@ -16,7 +16,7 @@ def index():
     elif request.method == 'GET':
         form.name.data = session.get('name', '')
         # form.room.data = session.get('room', '')
-    return render_template('index.html', form=form)
+    return render_template('front_page.html', form=form)
 
 
 @main.route('/chat')
