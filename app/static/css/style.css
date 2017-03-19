@@ -1,0 +1,70 @@
+#session-timer {
+  text-align: center; }
+
+#question {
+  color: #FFFFFF;
+  padding-top: 3rem;
+  margin-bottom: 10rem;
+  font-size: 2rem;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+  height: auto; }
+
+.real-profile .profile-photo {
+  width: 20rem;
+  height: 20rem; }
+.real-profile .user-info {
+  margin-bottom: 2rem; }
+
+.message {
+  margin: 0 auto 20px;
+  width: 80%;
+  position: relative;
+  height: 100px;
+  display: flex; }
+  .message .text {
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    position: relative;
+    margin: auto 0;
+    line-height: 5rem;
+    padding: 0 20px; }
+    .message .text::before {
+      content: "";
+      width: 0;
+      position: absolute;
+      top: 50%;
+      margin-top: -10px;
+      border: 10px solid transparent; }
+  .message .user {
+    position: absolute;
+    width: auto;
+    height: 100%; }
+    .message .user .avatar {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 100%; }
+
+.me.message {
+  justify-content: flex-end; }
+.me .user {
+  right: 0; }
+.me .text {
+  margin-right: 150px; }
+  .me .text::before {
+    right: -20px;
+    border-left-color: rgba(255, 255, 255, 0.9); }
+
+.you.message {
+  justify-content: flex-start; }
+.you .user {
+  left: 0; }
+.you .text {
+  margin-left: 150px; }
+  .you .text::before {
+    left: -20px;
+    border-right-color: rgba(255, 255, 255, 0.9); }
+
+/*# sourceMappingURL=style.css.map */
