@@ -4,17 +4,17 @@
 #question {
   color: #FFFFFF;
   padding-top: 3rem;
-  margin-bottom: 10rem;
+  margin-bottom: 3rem;
   font-size: 2rem;
   margin-left: 5%;
   margin-right: 5%;
   width: 90%;
   height: auto; }
 
-.real-profile .profile-photo {
+#real-profile .profile-photo {
   width: 20rem;
   height: 20rem; }
-.real-profile .user-info {
+#real-profile .user-info {
   margin-bottom: 2rem; }
 
 .message {
@@ -66,5 +66,13 @@
   .you .text::before {
     left: -20px;
     border-right-color: rgba(255, 255, 255, 0.9); }
+
+#message-field-wrapper {
+  margin: 0 auto;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: #FFFFFF;
+  margin-bottom: 0; }
 
 /*# sourceMappingURL=style.css.map */
